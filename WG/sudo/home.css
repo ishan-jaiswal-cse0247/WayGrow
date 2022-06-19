@@ -1,0 +1,36 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+body{
+    background: linear-gradient(0.25turn, #a9fac4, #6eff9e, #00ff55);
+   
+    
+
+
+}
+.btn{
+   
+    padding: 15px;
+    display: flex;
+    margin-top: 10%;
+    margin-right: 30%;
+    width: 150px;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}
+.btn1{
+    margin-right: 110px;
+}
+.btn3{
+    margin-left: 110px;
+}
+.btn4{
+    margin-top: 110px;
+}
+.btn5{
+    margin-top: 100px;
+    
+}
