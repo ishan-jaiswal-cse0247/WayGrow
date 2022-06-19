@@ -1,10 +1,3 @@
-
-<?php 
-session_start();
-error_reporting(0);
-              if(isset($_SESSION['name'])){
-              }else header ("location: loginpage.php")  
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,9 +5,9 @@ error_reporting(0);
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WayGrow</title>
+  <title>WayGrow Login</title>
   <link rel ="shortcut icon" type = "image/png" href = "favicon.png"> 
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="loginpage.css?v<?php echo time();?>">
   <link rel="stylesheet" type="text/css"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -26,18 +19,13 @@ error_reporting(0);
 <body>
 
   <div class="banner">
-    
-    <!-- ====== Navigation bar Started ====== -->
     <nav>
       <input id="nav-toggle" type="checkbox">
       <div><img src="logo.png" class="logo" alt=""></div>
       <ul class="links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="resource/about/about.php">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="resource/mission/mission.php">Mission</a></li>
-        <li><a href="resource/internship/internship.php">Internship</a></li>
-        <li><a href="resource/dashboard/userdash.php"><img class="userr" src="Image/man.png" alt=""></a></li>
+        <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#loginn">Login/SignUp</a></li>
       </ul>
       <label for="nav-toggle" class="icon-burger">
         <div class="line"></div>
@@ -45,20 +33,107 @@ error_reporting(0);
         <div class="line"></div>
       </label>
     </nav>
-    <!-- ======= Navigation bar Ended ======== -->
-
-    <div class="content">
-      <h1>GROW YOUR SKILLS</h1>
-      <p>Apply for the Internships and Missions and get certificate and rewards on completion </p>
-
-      <!-- Button -->
-      <div class="btnn">
-        <a href="resource/mission/mission.php"><button type="button"><span></span> Mission</button></a>
-        <a href="resource/internship/internship.php"><button type="button"><span></span> Internship</button></a>
+<!-- ========Navbar Ended====== -->
+ 
+<!-- ======= Login Page Started ========= -->
+        <div id="loginn" class="box">
+          <div class="wrapper">
+            <div class="title-text">
+              <div class="title login">
+                Login </div>
+              <div class="title signup">
+                SignUp </div>
+            </div>
+            <div class="form-container">
+              <div class="slide-controls">
+                <input type="radio" name="slide" id="login" checked>
+                <input type="radio" name="slide" id="signup">
+                <label for="login" class="slide login">Login</label>
+                <label for="signup" class="slide signup">SignUp</label>
+                <div class="slider-tab">
+                </div>
+              </div>
+                <div class="form-inner">
+                <form action="validation.php" method = "post" class="login">
+                <div class= "box">
+                <select name = "type" class = "select-typ">
+                 <option value="employee"> Employee </option> 
+                 <option value="employer"> Employer </option>
+                 </select> 
+                 </div>
+                  <div class="field">
+                    <input type="text" name ="email" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                    <input type="password" name= "password" placeholder="Password" required>
+                  </div>
+                  <div class="pass-link">
+                    <a href="recovermail.php">Forgot password?</a>
+                  </div>
+                  <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" name = "loginuser" value="Login">
+                  </div>
+                  <div class="signup-link">
+                    Not a member? <a href="">SignUp now</a></div>
+                </form>
+                <form action = "registration.php" method = "post" class="signup">
+                 
+                 <div class= "box">
+                 <select name = "type" class= "select-typ">
+                 <option value="employee"> Employee </option> 
+                 <option value="employer"> Employer </option>
+                 </select> 
+                 </div>
+                  <div class="field">
+                    <input type="text" name = "name" placeholder="Full Name" required>
+                  </div>
+                  <div class="field">
+                    <input type="email" name = "email" placeholder="Email Address" required>
+                  </div>
+                  <div class="field">
+                    <input type="password" name = "password" placeholder="Password" required>
+                  </div>
+                  <div class="field">
+                    <input type="password" name = "conform" placeholder="Confirm Password" required>
+                  </div>
+                  <br>
+                  <div class= "check">
+                  <style>
+                  div {text-align: center;}
+                  </style>
+                  <input type="checkbox" name = "tandc" required> I have read and agree to the <a href= "resource/pp&tc/tc.php" > T&C </a><br> and accept <a href= "resource/pp&tc/pp.php" >Privacy Policy</a>
+                  </div>
+                  <div class="field btn">
+                    <div class="btn-layer">
+                    </div>
+                    <input type="submit" name = "registeruser" value="SignUp">
+                  </div>
+                  <div class="login-link">
+                    Alredy a member? <a href="">Login</a></div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+      </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+    <!-- ===== Login page Ended ===== -->
     </div>
-  </div>
-  <!-- Banner ended -->
+    <!-- Banner ended -->
+  
 
   <!-- ======= About Us Section ======= -->
   <section id="about" class="about">
@@ -202,7 +277,7 @@ error_reporting(0);
     </section>
     <!-- ===== End Contact Section ===== -->
 
-    <!-- ======= Footer started ======= -->
+    <!-- ======= Footer started======= -->
     <div class="main"> </div>
     <footer class="footer-distributed">
 
@@ -211,8 +286,10 @@ error_reporting(0);
         <h3>Way<span>Grow</span></h3>
 
         <p class="footer-links">
-          <a href="index.php">Home</a>
+          <a href="indexcopy.php">Home</a>
           .
+          <!-- <a href="#about"></a>
+  · -->
           <a href="#contact">Contact</a>
           ·
           <a href="resource\pp&tc\pp.php">Privacy Policy</a>
@@ -263,9 +340,29 @@ error_reporting(0);
       </div>
 
     </footer>
-    <!-- -----Footer Ended----- -->
+    <!-- ========== Footer Ended ========= -->
 
-<!-- ====== JQuery Links ====== -->
+    <script>
+      const loginText = document.querySelector(".title-text .login");
+      const loginForm = document.querySelector("form.login");
+      const loginBtn = document.querySelector("label.login");
+      const signupBtn = document.querySelector("label.signup");
+      const signupLink = document.querySelector("form .signup-link a");
+      signupBtn.onclick = (() => {
+        loginForm.style.marginLeft = "-50%";
+        loginText.style.marginLeft = "-50%";
+      });
+      loginBtn.onclick = (() => {
+        loginForm.style.marginLeft = "0%";
+        loginText.style.marginLeft = "0%";
+      });
+      signupLink.onclick = (() => {
+        signupBtn.click();
+        return false;
+      });
+    </script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"
       integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG"
       crossorigin="anonymous"></script>
